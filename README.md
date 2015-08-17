@@ -4,10 +4,6 @@ CSV streaming generator for nodejs
 ```javascript
 var CSVParse = require('zstreams-csv-parse');
 
-// Input: object stream
-// { Name: 'Jackson, Steven', Gender: 'M', Age: 25 }
-// { Name: 'Maria "Killer" Sanchez', Gender: 'F', Age: 21 }
-
 var input = [
 	{ Name: 'George', Gender: 'M', Age: 32 },
 	{ Name: 'Jackson, Steven', Gender: 'M', Age: 25 },
