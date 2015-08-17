@@ -2,15 +2,15 @@
 CSV streaming generator for nodejs
 
 ```javascript
-var CSVParse = require('zstreams-csv-parse');
+var CSVWrite = require('zstreams-csv-write');
 
 var input = [
 	{ Name: 'George', Gender: 'M', Age: 32 },
 	{ Name: 'Jackson, Steven', Gender: 'M', Age: 25 },
 	{ Name: 'Maria "Killer" Sanchez', Age: 21 }
 ];
-var csvParse = new CSVParse([ 'Name', 'Gender', 'Age' ]);
-zstreams.fromArray(input).pipe(csvParse).intoString(function(error, output) {
+var csvWrite = new CSVWrite([ 'Name', 'Gender', 'Age' ]);
+zstreams.fromArray(input).pipe(csvWrite).intoString(function(error, output) {
 	console.log(output.split('\n'));
 	// [
 	//   'Name,Gender,Age',

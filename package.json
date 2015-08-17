@@ -1,13 +1,21 @@
 {
     "name": "zstreams-csv-write",
-    "version": "0.1.1",
+    "version": "0.1.2",
     "description": "Streaming CSV writer for nodejs",
     "main": "./index.js",
+    "repository": {
+        "type": "git",
+        "url": "git@github.com:zipscene/zstreams-csv-write.git"
+    },
+    "license": "MIT",
     "dependencies": {
         "zstreams": "^3.2.1"
     },
     "devDependencies": {
         "chai": "^2.1.1",
         "mocha": "^2.2.1"
+    },
+    "scripts": {
+        "test": "node_modules/.bin/mocha test"
     }
 }
