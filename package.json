@@ -1,5 +1,5 @@
 {
-    "name": "total-junk",
+    "name": "zstreams-csv-write",
     "version": "0.1.0",
     "description": "Streaming CSV writer for nodejs",
     "main": "./index.js",
