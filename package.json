@@ -1,0 +1,13 @@
+{
+    "name": "total-junk",
+    "version": "0.1.0",
+    "description": "Streaming CSV writer for nodejs",
+    "main": "./index.js",
+    "dependencies": {
+        "zstreams": "^3.2.1"
+    },
+    "devDependencies": {
+        "chai": "^2.1.1",
+        "mocha": "^2.2.1"
+    }
+}
