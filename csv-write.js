@@ -50,7 +50,7 @@ CsvWriter.prototype._writeHeaderRow = function() {
 	var self = this;
 	var output = '';
 	var i;
-	if(self.headerWritten) return;
+	if(self.headerWritten || !Array.isArray(self.headers)) return;
 	if(!Array.isArray(self.headers) || self.headers.length === 0) throw new Error('No headers provided to CsvWriter');
 	for(i = 0; i < self.headers.length; i++) {
 		var header = self.headers[i];
@@ -66,14 +66,22 @@ CsvWriter.prototype._writeOutputLine = function(obj) {
 	var self = this;
 	var output = '';
 	var i;
-	if(!Array.isArray(self.headers) || self.headers.length === 0) throw new Error('No headers provided to CsvWriter');
-	for(i = 0; i < self.headers.length; i++) {
-		var header = self.headers[i];
-		if(i !== 0) output += self.delimiter;
-		if(!obj[header]) continue;
-		var value = obj[header];
-		var toWrite = self._stringifyValue(value);
-		output += toWrite;
+	if(Array.isArray(obj)) {
+		for(i = 0; i < obj.length; i++) {
+			if(i !== 0) output += self.delimiter;
+			if (!obj[i]) continue;
+			output += self._stringifyValue(obj[i]);
+		}
+	} else {
+		if(!Array.isArray(self.headers) || self.headers.length === 0) throw new Error('No headers provided to CsvWriter');
+		for(i = 0; i < self.headers.length; i++) {
+			var header = self.headers[i];
+			if(i !== 0) output += self.delimiter;
+			if(!obj[header]) continue;
+			var value = obj[header];
+			var toWrite = self._stringifyValue(value);
+			output += toWrite;
+		}
 	}
 	output += self.lineDelimiter;
 	self.push(output);
