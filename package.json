@@ -1,6 +1,6 @@
 {
     "name": "zstreams-csv-write",
-    "version": "0.1.4",
+    "version": "0.1.5",
     "description": "Streaming CSV writer for nodejs",
     "main": "./index.js",
     "repository": {

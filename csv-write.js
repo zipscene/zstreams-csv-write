@@ -69,7 +69,7 @@ CsvWriter.prototype._writeOutputLine = function(obj) {
 	if(Array.isArray(obj)) {
 		for(i = 0; i < obj.length; i++) {
 			if(i !== 0) output += self.delimiter;
-			if (!obj[i]) continue;
+			if (obj[i] === undefined || obj[i] === null) continue;
 			output += self._stringifyValue(obj[i]);
 		}
 	} else {
@@ -77,7 +77,7 @@ CsvWriter.prototype._writeOutputLine = function(obj) {
 		for(i = 0; i < self.headers.length; i++) {
 			var header = self.headers[i];
 			if(i !== 0) output += self.delimiter;
-			if(!obj[header]) continue;
+			if(obj[header] === undefined || obj[header] === null) continue;
 			var value = obj[header];
 			var toWrite = self._stringifyValue(value);
 			output += toWrite;
